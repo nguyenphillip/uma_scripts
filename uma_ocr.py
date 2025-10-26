@@ -222,8 +222,8 @@ left_outer_frame.pack(side="left", padx=10, fill="both", expand=True)
 left_button_frame = tk.Frame(left_outer_frame)
 left_button_frame.pack(pady=5, fill="x")
 
-upload_btn = tk.Button(left_button_frame, text="Ctrl-V or Click to Paste from Clipboard", command=process_clipboard_image).pack(padx=5)
-clear_btn = tk.Button(left_button_frame, text="Clear", command=clear_all).pack()
+upload_btn = tk.Button(left_button_frame, text="Ctrl-V or Click to Paste from Clipboard", command=process_clipboard_image).pack(side="left", padx=5)
+clear_btn = tk.Button(left_button_frame, text="Clear", command=clear_all).pack(side="left")
 
 result_label = tk.Label(left_outer_frame, text="")
 result_label.pack(pady=5)
