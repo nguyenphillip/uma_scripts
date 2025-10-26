@@ -180,6 +180,24 @@ def copy_points():
         root.clipboard_append("\n".join(points_list))
         root.update()
 
+def clear_all():
+    global row_counter, images_list
+
+    # Clear the table
+    for row in tree.get_children():
+        tree.delete(row)
+    
+    # Clear images
+    for widget in image_frame.winfo_children():
+        widget.destroy()
+    
+    # Clear image references
+    images_list = []
+    
+    # Reset row counter
+    row_counter = 1
+
+    result_label.config(text="Image(s) cleared.")
 
 # GUI
 root = tk.Tk()
@@ -201,8 +219,11 @@ main_frame.pack(padx=10, pady=10)
 left_outer_frame = tk.Frame(main_frame)
 left_outer_frame.pack(side="left", padx=10, fill="both", expand=True)
 
-btn = tk.Button(left_outer_frame, text="Ctrl-V or Click to Paste from Clipboard", command=process_clipboard_image)
-btn.pack(pady=10)
+left_button_frame = tk.Frame(left_outer_frame)
+left_button_frame.pack(pady=5, fill="x")
+
+upload_btn = tk.Button(left_button_frame, text="Ctrl-V or Click to Paste from Clipboard", command=process_clipboard_image).pack(padx=5)
+clear_btn = tk.Button(left_button_frame, text="Clear", command=clear_all).pack()
 
 result_label = tk.Label(left_outer_frame, text="")
 result_label.pack(pady=5)
