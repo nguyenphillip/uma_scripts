@@ -8,7 +8,7 @@ from collections import defaultdict
 
 max_height = 500
 
-threshold = 0.5
+threshold = 0.25
 
 images_list = []  # store PhotoImage references to prevent GC
 row_counter = 1   # to number the rows
